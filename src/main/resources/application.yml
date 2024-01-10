@@ -1,0 +1,82 @@
+spring:
+
+  task:
+    scheduling:
+      pool:
+        size: 10
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  data:
+    mongodb:
+      port: 27017
+      host: localhost
+      auto-index-creation: true
+      authentication-database: admin
+      database: secret_santa
+      uri: mongodb://localhost:27017/secret_santa
+
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-root.yml
+
+  jpa:
+    open-in-view: true
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+
+  application:
+    name: secret_santa
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/secret_santa
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        use-model-v3: true
+
+logging.level:
+    org.springframework.orm.jpa: DEBUG
+    org.springframework.transaction: DEBUG
+
+server:
+  port: 8080
+
+jwt:
+  token:
+    secret: ${JWT_KEY}
+    expired: ${JWT_EXPIRED}
+
+logging:
+  level:
+    org.springframework: ERROR
+    com.innowise.secret_santa: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: app.log
+
+mongock:
+  migration-scan-package: com.innowise.secret_santa.mongodb.db.changelog

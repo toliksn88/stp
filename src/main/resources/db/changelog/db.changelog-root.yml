@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/db.changelog.create_schema.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_roles.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_accounts.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_accounts_roles.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_addresses.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_profiles.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_games.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_players.sql
+  - include:
+      file: db/changelog/db.changelog.create_table_distributions.sql
+  - include:
+      file: db/changelog/db.changelog.insert_data_table_roles.sql

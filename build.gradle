@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+
+    implementation "org.springframework.boot:spring-boot-starter:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-security:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-mail:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb:$springBootVersion"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-validation:$springBootVersion"
+
+    implementation "org.postgresql:postgresql:$postgresqlVersion"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    implementation "io.springfox:springfox-boot-starter:$swwagerVersion"
+
+    implementation "org.mapstruct:mapstruct:$mapstructVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+    implementation "org.liquibase:liquibase-core:$liquibaseVersion"
+
+    implementation "io.jsonwebtoken:jjwt:$jsonwebtokenVersion"
+
+    implementation "io.mongock:mongock-springboot:$mongockVersion"
+    implementation "io.mongock:mongodb-springdata-v3-driver:$mongockVersion"
+
+    annotationProcessor('org.hibernate:hibernate-jpamodelgen:6.0.0.Alpha9')
+}
+
+test {
+    useJUnitPlatform()
+}
